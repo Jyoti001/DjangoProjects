@@ -7,4 +7,5 @@ python manage.py runserver\
 python manage.py runserver 7777\
 \
 ###############################################\
-1) firstproject - simple sayHello project [ views/urls/settings]\
+1) **firstproject** - simple sayHello project [views/urls/settings]\
+2) **secondproject** - return current time as response [views/urls/settings]\
