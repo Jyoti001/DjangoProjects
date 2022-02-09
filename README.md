@@ -29,3 +29,4 @@ in the html file \
 8) **templateproject2** - Dynamic response from template , template tag, in file styling, different ways of writing render in views\
 9) **templateproject3** -Dynamic response,in file styling, random content\
 10) **staticproject** -Loading static files like images and css\
+11) **newsportal** - {% if %} - collaborated\

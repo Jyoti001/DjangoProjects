@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>News Page</title>
+    <link rel="stylesheet" href="{% static "css/news.css" %}">
+  </head>
+  <body>
+    <h1> {{head}} </h1>
+    <ul>
+      <li>{{msg1}}</li>
+      <li>{{msg2}}</li>
+      <li>{{msg3}}</li>
+      <li>{{msg4}}</li>
+      <li>{{msg5}}</li>
+      </ul>
+      {% if type == "movies" %}
+      <img src="{% static "images/movies.jpg" %}">
+      {% elif type == "sports" %}
+      <img src="{% static 'images/sports.jpg' %}">
+      {% elif type == "politics" %}
+      <img src="{% static 'images/politics.jpg' %}">
+      {% endif %}
+
+  </body>
+</html>

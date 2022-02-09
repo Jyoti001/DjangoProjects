@@ -1,0 +1,14 @@
+body{
+  background: url("https://media.istockphoto.com/photos/abstract-digital-news-concept-picture-id1290904409?b=1&k=20&m=1290904409&s=170667a&w=0&h=6khncht98kwYG-l7bdeWfBNs_GGcG1pDqzLb6ZXhh7I=");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+ul{
+  color:white;
+  font-size: 50px;
+
+}
+h1{
+  color:white;
+  font-size:100px;
+}
