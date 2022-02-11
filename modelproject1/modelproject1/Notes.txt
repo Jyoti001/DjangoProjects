@@ -1,0 +1,60 @@
+**** How to check database configuration ****
+python manage.py shell # this will open django shell
+from django.db import connection
+c = connection.cursor()
+---- no error in above these two lines, db connection is fine
+1) In MYSQL database, there is 1 physical db , and we need to create multiple logical databases
+2) for MySQL, we first need to create database and inside it, tables
+3) In ORACLE, we can directly create tables
+----------------------------------------------------
+Settings.py file configurations for different types of databases
+host & port are optional
+********* MYSQL **************
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'employeedb',
+        'USER': 'uroot',
+        'PASSWORD': '',
+        'HOST':'localhost',
+        'PORT': 3306,
+    }
+}
+
+********* ORACLE **************
+sqlplus
+select * from global_name; # May be putput - XE
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'XE',
+        'USER': 'uroot',
+        'PASSWORD': '',
+        'HOST':'localhost',
+        'PORT': 1521,
+    }
+}
+----------------------------------------------------------
+ORM - Object Relational Mapping
+Support that can convert objects to relational tables (object to relational mapping)
+show global variables like 'port' -- to see the port number where mysql is installed
+Model - Python Class containing db related info, each class corresponding to table in db [ this Model class subclass of django.db.models.Model]
+contains fields ( columns) & their attributes ( datatype/length etc)
+need to install mysqlclient ( required for django connecting to mysql, when doing python manage.py makemigrations, may prompt to install the same)
+python manage.py makemigrations # this will create file in migrations folder
+python manage.py sqlmigrate testapp 0001 - to view thecorresponding sql queries
+python manage.py migrate ( our tables as well as django specifdic tables will also be created)
+*** Always preferred to prepare tables using migrate as django specific tables will also be created along with our defined tables
+id - special column created by the django as auto incremented value (primary key)
+by default all fields not null
+when using sqlite3, it is a inbuilt database, so just like sql, we cannot login and see the table rather use admin access
+Whenever we have made databaae related settings in settings file, tjhen we need to checkthe db connection in pythoin shell
+
+***** Admin interface for project
+1) Urls.py -> go to admin Urls
+2) create superuser python manage.py createsuperuser
+3) Currently our creates table not visible in admin interface, need to register it
+4) admin.py -> class StudentAdmin(models.AdminModel) , list)display (fixed variable), admin.site.register(Student, StudentAdmin) <- model,modeladmin (same order)
+5) pip install cx_oracle just like mysqlclient while working with Oracle database
+6) python manage.py dbshell -> another way to check db connectibvity, will directly open the db shell

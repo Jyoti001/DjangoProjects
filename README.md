@@ -17,6 +17,10 @@ STATICFILES_DIRS = [STATIC_DIR] \
 in the html file \
 {% load static %} \
 <img src="{% static 'images/fruits.jpg'%}" alt=""> \
+python manage.py makemigrations # to convert model class to SQL compatible \
+python manage.py sqlmigrate testapp 0001 # to view corresponding sql queries \
+python manage.py migrate # will create tables corresponding to all apps ( default ones also)\
+python manage.py createsuperuser
 
 ###############################################\
 1) **firstproject** - simple sayHello project [views/urls/settings]\
@@ -30,3 +34,6 @@ in the html file \
 9) **templateproject3** -Dynamic response,in file styling, random content\
 10) **staticproject** -Loading static files like images and css\
 11) **newsportal** - {% if %} - collaborated\
+12) **modelproject1** - mysql setup in settings, table created in mysql, data inserted in table from admin interface [ models.py/settings.py/admin.py]\
+13) **modelproject2** - sqlite setup in settings[ models.py/settings.py/admin.py] , admin interface exploration\
+14) **modelproject3** - data fetching from mysql db and presenting via templates [settings/admin/urls/models/views]\
